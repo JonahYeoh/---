@@ -2,7 +2,7 @@ function put(id) {
     var text =
     {
         "resourceType": "Patient",
-        "id":"11111111111",
+		"id":"",
         "text": {
             "status": "generated"
         },
@@ -55,9 +55,9 @@ function put(id) {
         "active": "true",
         "name": [
             {
-                "family": "demo",
+                "family": "emo",
                 "given": [
-                    "demo"
+                    "emo"
                 ]
             },
 			{
@@ -94,10 +94,14 @@ function put(id) {
 			"reference": "Organization/1945183"
         }
     }
-    text.id = 19000;
+    alert("help");
+	text.id = id+"a";
     var myJSON = JSON.stringify(text);
+	alert(myJSON);
     //var url = "http://hapi.fhir.org/baseDstu3/Patient?_id="+id;
-    var url = "http://hapi.fhir.org/baseDstu3/Patient?organization=1945183&&given:exact=demo&&family=demo";
+    //var url = "http://hapi.fhir.org/baseDstu3/Patient?organization=1945183&&given:exact=demo&&family=demo";
+	var url = "http://hapi.fhir.org/baseDstu3/Patient/"+id+"a";
+	//PUT http://hapi.fhir.org/baseDstu3/Patient/232435?_format=json&_pretty=true
     HTTPPutData(url, myJSON);
 }
 
